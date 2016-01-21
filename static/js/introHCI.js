@@ -39,8 +39,8 @@ function projectClick(e) {
     var jumbotronHeader = $(".jumbotron h1");
     jumbotronHeader.text(projectTitle);
     
+    /*
     var containingProject = $(this).closest(".project");
     containingProject.append("<div class='project-description'> <p>Description of the project.</p></div>");
-}
-    
+	*/
 }
