@@ -11,6 +11,7 @@ $(document).ready(function() {
 function initializePage() {
 	$("#testjs").click(function(e) {
 		$('.jumbotron h1').text("Javascript is connected");
+		$("#testjs").text("Good Job");
 	});
 
 	// Add any additional listeners here
@@ -39,8 +40,14 @@ function projectClick(e) {
     var jumbotronHeader = $(".jumbotron h1");
     jumbotronHeader.text(projectTitle);
     
-    /*
     var containingProject = $(this).closest(".project");
-    containingProject.append("<div class='project-description'> <p>Description of the project.</p></div>");
-	*/
+    var description = $(containingProject).find(".project-description");
+    if (description.length == 0) {
+       $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+    } 
+    else {
+       description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+    }
+    containingProject.replace("<div class='project-description'> <p>Description of the project.</p></div>");
+    
 }
