@@ -12,6 +12,7 @@ function initializePage() {
 	$("#testjs").click(function(e) {
 		$('.jumbotron h1').text("Javascript is connected");
 		$("#testjs").text("Good Job");
+		$(".jumbotron p").toggleClass("active");
 	});
 
 	// Add any additional listeners here
@@ -25,6 +26,9 @@ function initializePage() {
 	});
 	
 	$("a.thumbnail").click(projectClick);
+	
+	$("#submitBtn").click(updateProject);
+
 	
 }
 
@@ -49,5 +53,16 @@ function projectClick(e) {
        description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
     }
     containingProject.replace("<div class='project-description'> <p>Description of the project.</p></div>");
+    
+    
+    var projectID = $('#project').val();
+	$(projectID).animate({
+    	width: $('#width').val()
+   	});
+
+   	var newText = $('#description').val();
+   	$(projectID + " .project-description").text(newText);
+    
+    
     
 }
